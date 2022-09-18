@@ -101,8 +101,12 @@ while iniciar_trivia == True:
         '\nAhora la tercera pregunta.Esta pregunta consta en asumir un riesgo ,en el cual tu escogeras un numero del 1 al 10 y si respondas correctamente , el numero que elegiste multiplicara a tu puntaje acumulado , pero si fallas ese mismo numero que elegiste se restara de tu puntaje acumulado.'
         + RESET)
     time.sleep(5)
-    apuesta = int(input(YELLOW + '\nIngresar numero:'))
-    print('Empezemos')
+    apuesta = input(YELLOW + '\nIngresar numero:'+ RESET)
+    while apuesta not in ('1','2','3','4','5','6','7','8','9','10'):
+      print(CYAN +'Tu numero debe estar entre el 1 y 10')
+      time.sleep(1)
+      apuesta = input('\nIngresa tu numero: ' + RESET)
+    print(YELLOW +'Empezemos')
     time.sleep(1)
     print(
         '\n2)Quien es la criatura demoniaca que ataca a gandalf y se lo llevo al inframundo?'
@@ -118,7 +122,7 @@ while iniciar_trivia == True:
         respuesta_4 = input('\nIngresa tu respuesta: ' + RESET)
     puntaje4 = 0
     if respuesta_4 == 'a':
-        puntaje4 = puntajeacu - apuesta
+        puntaje4 = puntajeacu - int(apuesta)
         print('Incorrecto', nombre, ',Pierdes', apuesta, 'puntos')
         time.sleep(1)
         print('tu puntaje acumulado es', puntaje4)
@@ -130,13 +134,13 @@ while iniciar_trivia == True:
         print('tu puntaje acumulado es', puntaje4)
         time.sleep(1)
     elif respuesta_4 == 'c':
-        puntaje4 = puntajeacu - apuesta
+        puntaje4 = puntajeacu - int(apuesta)
         print('Incorrecto', nombre, ',Pierdes', apuesta, 'puntos')
         time.sleep(1)
         print('tu puntaje acumulado es', puntaje4)
         time.sleep(1)
     else:
-        puntaje4 = puntajeacu * apuesta
+        puntaje4 = puntajeacu * int(apuesta)
         print('Correcto', nombre)
         time.sleep(1)
         print('tu puntaje acumulado es', puntaje4)
